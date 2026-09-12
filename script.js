@@ -3,20 +3,21 @@ function firstNonRepeatedChar(str) {
 		return null;
 	}
 	let map=new Map();
-	for(let i=0;i<str.length();i++){
-		if(map.has(i)){
-			map.set(i,map.get(i)+1);
+	for(let i=0;i<str.length;i++){
+		let ch=str[i];
+		if(map.has(ch)){
+			map.set(ch,map.get(ch)+1);
 		}
 		else{
-			map.set(i,1);
+			map.set(ch,1);
 		}
 	}
 	for(let i=0;i<str.length;i++){
-		if(map.get(i)===1){
-			return i;
+		if(map.get(str[i])===1){
+			return str[i];
 		}
 	}
 	return null;
 }
-const input = prompt("Enter a string");
+ const input = prompt("Enter a string");
 alert(firstNonRepeatedChar(input)); 
